@@ -255,7 +255,7 @@ while True:
         elif "!weather" in new_message.lower():
 
             weather = new_message.split()
-            if len(weather) == 2:
+            if len(weather) == 3:
                 r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + weather[-2] + "+" + weather[-1]
                                  + '&units=imperial&appid=')
             else:
@@ -269,7 +269,7 @@ while True:
                 curr_weather_feel = f'{data["main"]["feels_like"]}'
                 curr_weather_temp = f'{data["main"]["temp"]}'
                 curr_weather_wind = f'{data["wind"]["speed"]}'
-                if len(weather) == 2:
+                if len(weather) == 3:
                     string = "The weather in " + weather[-2] +" " + weather[-1] + " is currently "\
                              + curr_weather_condition + ". The current temperature is " + curr_weather_temp\
                              + "F and feels like " + curr_weather_feel + "F and the current wind speed is "\
