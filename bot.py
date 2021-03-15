@@ -67,6 +67,9 @@ def results(file_name, job):
             string += str(result) + "\n"
     if string == "":
         string = "Doesn't look like there are any recommendations for that job."
+    string = string.replace("'", "")
+    string = string.replace("}", "")
+    string = string.replace("{", "")
     input_box.send_keys(string + Keys.ENTER)
     time.sleep(10)
 
@@ -174,7 +177,7 @@ while True:
             time.sleep(3)
 
         elif "!mathtutor" in new_message.lower():
-            results(file_name, "mathtutor")
+            results(file_name, "math tutor")
 
         elif "!insult" in new_message.lower():
             r= requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
@@ -222,7 +225,7 @@ while True:
             time.sleep(3)
 
         elif "!cardealer" in new_message.lower():
-            results(file_name, "cardealer")
+            results(file_name, "car dealer")
 
         elif "!electrician" in new_message.lower():
             results(file_name, "electrician")
@@ -237,7 +240,7 @@ while True:
             results(file_name, "pediatrician")
 
         elif "!travelagent" in new_message.lower():
-            results(file_name, "travelagent")
+            results(file_name, "travel agent")
 
         elif "!info" in new_message.lower():
             string = "This bot was created for fun by Steven Baum if you'd like to add a job results command please "\
