@@ -128,17 +128,26 @@ while True:
             time.sleep(3)
         elif "!rec" in new_message.lower():
             up = new_message.split()
+            full_job = []
             for word in range(1, len(up)):
                 if up[word][0] == "1":
                     job = up[word][1:].lower()
                     print(up[word])
+
+                elif up[word].isalpha() and up[-4][0] != "1" and len(full_job) != 2:
+                    job += " " + up[word].lower()
+                    print(up[word])
+                    print(job)
+                    full_job = job.split()
                 elif up[word][0] == "2":
                     name = up[word][1:].lower()
                     print(up[word])
-                elif up[word].isalpha():
+
+                elif up[word].isalpha() and len(full_job) == 2:
                     name += " " + up[word].lower()
                     print(up[word])
                     print(name)
+
                 elif up[word][0] == "3":
                     number = up[word][1:].lower()
                     print(up[word])
